@@ -1,62 +1,47 @@
-# Purpose
-This repository is the base template that should be used for all future businesses, including basic files such as navbar, footer, and other configs.
+# Immanuel Restaurant
 
-# Business Name
+Website for Immanuel Restaurant INC, 799 Stanley Avenue, Brooklyn (East New York). Panamanian
+frituras, soul food and breakfast from Chef Yonayka Bryant Green, since June 2018.
 
-Replace this README with business-specific details.
+The old sites (immanuelrest.com, immanuelrestaurantinc.com) are down. This replaces them.
 
----
+## The idea
 
-## 🚀 Overview
+Set the table. The hero is the restaurant's own corn empanada photo, served as a round plate with
+their logo line turning around it. Below it, four hand-drawn SVG plates of real dishes you can
+switch between under "What are you hungry for?". Design notes live in `DESIGN.md`; photo sources
+in `raw messy data/media/SOURCES.md`.
 
-Short description of the business and what this website is for.
+## Stack
 
-Example:
-"This website serves as the official online presence for [Business Name], showcasing services, contact information, and brand identity."
+- Next.js 16 (App Router), TypeScript, plain CSS with tokens (`src/app/globals.css`)
+- GSAP (ticker, SplitText, page transitions), CSS animations for the illustrations
+- Fonts self-hosted: Gloock (display, via next/font/google) and Switzer (text, `src/fonts`)
 
----
+## Where things live
 
-## 🛠 Tech Stack
+| What | File |
+|---|---|
+| Every business fact (address, phone, hours, links, story, reviews, honors) | `src/data/site.ts` |
+| The menu and prices | `src/data/menu.ts` |
+| Hero photo (self-hosted) and its animated plate | `public/photos/`, `src/components/home/HeroPhoto.tsx` |
+| Food illustrations (pieces and plates) | `src/components/food/` |
+| Home page and the plate switcher | `src/app/page.tsx`, `src/components/home/` |
 
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
-- Hosted on Vercel
+Corrections are one-line edits in `src/data/site.ts` or `src/data/menu.ts`.
 
----
-
-## 📂 Project Structure
-
-- `src/app` → App Router (homepage, layout, globals)
-- `src/app/pages` → Site pages (About, Contact, etc.)
-- `src/lib/components` → Shared UI components (Navbar/Footer)
-- `public` → Static assets
-
----
-
-## 🧑‍💻 Development
-
-Install dependencies:
+## Run
 
 ```bash
 npm install
-npm install --save-dev @types/react
+npm run dev          # http://localhost:3000
+npm run build && npm start
 ```
 
-Run locally:
+## Before launch (owner to confirm)
 
-```bash
-npm run dev
-```
-
----
-
-## ✏️ Customization Checklist
-
-- [ ] Replace Business Name in navbar + footer
-- [ ] Update metadata in `src/app/layout.tsx`
-- [ ] Replace homepage content (`src/app/page.tsx`)
-- [ ] Update About + Contact pages (`src/app/pages/*`)
-- [ ] Replace favicon + assets in `public/`
-- [ ] Update SEO metadata
-- [ ] (Optional) Update Novus credit link text / URL in the footer
+- Hours (the site uses Mon, Tue, Thu, Fri, Sat 7 AM to 7 PM; Wed 7 AM to 5 PM; Sun closed)
+- Spelling of the owner's first name (Yonayka is used)
+- Which prices to show (online-ordering prices from Nov 2026 are used)
+- A vector logo file, and real food and storefront photography
+- The production domain (`site.url`, assumed https://immanuelrest.com)
